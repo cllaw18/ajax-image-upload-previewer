@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<meta charset=utf-8 />
+<title>Ajax Image Upload Previewer -Soyo Solution</title>
+<!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style type="text/css">
+	img {width:100px;}
+</style>
+</head>
+<body>
+<h2>Ajax Image upload Previewer</h2>
+<p>Please select some picture from your computer, It would display the picture you selected.</p>
+<p>The file is edited so that can upload muiti picture.</p>
+<table>
+<tr>
+	<td>
+		<img id="uploadPreview1" src="no_image.jpg" /><br />
+		<input id="uploadImage1" type="file" name="p1" onchange="PreviewImage(1);" />
+	</td>
+	<td>
+		<img id="uploadPreview2" src="no_image.jpg" /><br />
+		<input id="uploadImage2" type="file" name="p2" onchange="PreviewImage(2);" />
+	</td>
+	<td>
+		<img id="uploadPreview3" src="no_image.jpg" /><br />
+		<input id="uploadImage3" type="file" name="p3" onchange="PreviewImage(3);" />
+	</td>
+	<td>
+		<img id="uploadPreview4" src="no_image.jpg" /><br />
+		<input id="uploadImage4" type="file" name="p4" onchange="PreviewImage(4);" />
+	</td>	
+</tr>
+</table>
+		
+<script type="text/javascript">
+    function PreviewImage(no) {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage"+no).files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview"+no).src = oFREvent.target.result;
+        };
+    }
+</script>
+<br />
+<br />
+<p>Apache License 2.0</p>
+<p>
+Reference from Kamyar Nazeri in StackoverFlow<br />
+http://stackoverflow.com/questions/14069421/in-html5-how-to-show-preview-of-image-before-upload
+</p>
+
+<footer>CopyRight &copy; 2014. Powered by <a href="http://www.soyosolution.com">Soyo Solution</a></footer>
+</body>
+</html>
